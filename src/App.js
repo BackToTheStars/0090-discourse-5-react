@@ -36,6 +36,8 @@ function App() {
         <p>2. Add scroll to the box text</p>
         <p>3. Add box drag left/right, up/down</p>
         <p>4. Add box resize functionality</p>
+        <p>5. Add button to hide/show text editor for highlighting</p>
+        <p>6. Connect Mongo Atlas or Firebase database backend</p>
       </div>
       <br />
 
