@@ -5,11 +5,19 @@
 
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
 function App() {
+
+  const [showPic, setShowPic] = useState(true);
+
+  const showPics = () => {
+    setShowPic(!showPic);
+  }
+
+
   return (
 
     <div className="container-fluid border">
@@ -20,13 +28,13 @@ function App() {
 
         <div className="col-4">
           <div className="card" style={{width: 18 + 'rem;'}}>
-            <img className="card-img-top" src="https://static01.nyt.com/images/2020/06/23/science/00SCI-MARS-HELICOPTER1/00SCI-MARS-HELICOPTER1-superJumbo.jpg?quality=90&auto=webp" alt="Card image cap" />
+            { showPic && <img className="card-img-top" src="https://static01.nyt.com/images/2020/06/23/science/00SCI-MARS-HELICOPTER1/00SCI-MARS-HELICOPTER1-superJumbo.jpg?quality=90&auto=webp" alt="Card image cap" /> }
               <div className="card-body">
                 <h5 className="card-title">Mars Is About to Have Its ‘Wright Brothers Moment’</h5>
                 <h6 className="card-subtitle mb-2 text-muted">As part of its next Mars mission, NASA is sending an experimental helicopter to fly through the red planet’s thin atmosphere.</h6>
                 <p className="card-text">{text}</p>
                 <a href="#" className="btn btn-primary mr-2">Go somewhere</a>
-                <a href="#" className="btn btn-secondary">Hide/Show pic</a>
+                <a href="#" className="btn btn-secondary" onClick={showPics}>Hide/Show pic</a>
               </div>
           </div>
         </div>
