@@ -1,0 +1,7 @@
+
+6/28/2020
+Установил PrimeReact:
+    npm install primereact --save
+    npm install primeicons --save
+    npm install classnames --save
+    npm install quill --save

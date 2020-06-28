@@ -7,9 +7,12 @@
 
 import React, { useState } from 'react';
 import './App.css';
+import { Editor } from 'primereact/editor';
 
 
 function App() {
+
+  const [editorText, setEditorText] = useState({'text': text});
 
   const [showPic, setShowPic] = useState(false);
   const showPics = () => {
@@ -26,13 +29,15 @@ function App() {
 
     <div className="container-fluid">
 
-      <div>
+      <div id="todo">
         <br />
         {/*space for Header component*/}
-        <p>1. Add functionality to highlight text in the box</p>
+        <p className="done">1. Add functionality to highlight text in the box</p>
         <p>2. Add scroll to the box text</p>
-        <br />
+        <p>3. Add box drag left/right, up/down</p>
+        <p>4. Add box resize functionality</p>
       </div>
+      <br />
 
       <div className="row">
 
@@ -50,7 +55,9 @@ function App() {
                     <br />
                   </>
                 }
-                <p className="card-text">{text}</p>
+                {/*<div className="card-text">{editorText.text}</div>*/}
+                <div className="card-text large-text"
+                     dangerouslySetInnerHTML={{ __html: editorText.text }} />
                 <a href="#" className="btn btn-primary btn-sm mr-2">Highlight</a>
                 <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showPics}>Hide/Show pic</a>
                 <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showHeaders}>Hide/Show headers</a>
@@ -58,9 +65,15 @@ function App() {
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-1">
         </div>
 
+        <div className="col-4">
+          <Editor style={{height:'520px'}} value={editorText.text} onTextChange={(e) => setEditorText({text: e.htmlValue})} />
+        </div>
+
+        <div className="col-1">
+        </div>
 
       </div>
     </div>
