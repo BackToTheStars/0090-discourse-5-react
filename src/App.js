@@ -11,16 +11,29 @@ import './App.css';
 
 function App() {
 
-  const [showPic, setShowPic] = useState(true);
-
+  const [showPic, setShowPic] = useState(false);
   const showPics = () => {
     setShowPic(!showPic);
+  }
+
+  const [showHeader, setShowHeader] = useState(false);
+  const showHeaders = () => {
+    setShowHeader(!showHeader);
   }
 
 
   return (
 
-    <div className="container-fluid border">
+    <div className="container-fluid">
+
+      <div>
+        <br />
+        {/*space for Header component*/}
+        <p>1. Add functionality to highlight text in the box</p>
+        <p>2. Add scroll to the box text</p>
+        <br />
+      </div>
+
       <div className="row">
 
         <div className="col-2">
@@ -30,11 +43,17 @@ function App() {
           <div className="card" style={{width: 18 + 'rem;'}}>
             { showPic && <img className="card-img-top" src="https://static01.nyt.com/images/2020/06/23/science/00SCI-MARS-HELICOPTER1/00SCI-MARS-HELICOPTER1-superJumbo.jpg?quality=90&auto=webp" alt="Card image cap" /> }
               <div className="card-body">
-                <h5 className="card-title">Mars Is About to Have Its ‘Wright Brothers Moment’</h5>
-                <h6 className="card-subtitle mb-2 text-muted">As part of its next Mars mission, NASA is sending an experimental helicopter to fly through the red planet’s thin atmosphere.</h6>
+                { showHeader &&
+                  <>
+                    <h5 className="card-title">Mars Is About to Have Its ‘Wright Brothers Moment’</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">As part of its next Mars mission, NASA is sending an experimental helicopter to fly through the red planet’s thin atmosphere.</h6>
+                    <br />
+                  </>
+                }
                 <p className="card-text">{text}</p>
-                <a href="#" className="btn btn-primary mr-2">Go somewhere</a>
-                <a href="#" className="btn btn-secondary" onClick={showPics}>Hide/Show pic</a>
+                <a href="#" className="btn btn-primary btn-sm mr-2">Highlight</a>
+                <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showPics}>Hide/Show pic</a>
+                <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showHeaders}>Hide/Show headers</a>
               </div>
           </div>
         </div>
