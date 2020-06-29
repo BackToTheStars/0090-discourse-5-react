@@ -23,7 +23,10 @@ function App() {
   const showHeaders = () => {
     setShowHeader(!showHeader);
   }
-
+  const [showEditor, setShowEditor] = useState(false);
+  const showEditorSwitch = () => {
+    setShowEditor(!showEditor);
+  }
 
   return (
 
@@ -60,9 +63,9 @@ function App() {
                 {/*<div className="card-text">{editorText.text}</div>*/}
                 <div className="card-text large-text"
                      dangerouslySetInnerHTML={{ __html: editorText.text }} />
-                <a href="#" className="btn btn-primary btn-sm mr-2">Highlight</a>
-                <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showPics}>Hide/Show pic</a>
-                <a href="#" className="btn btn-primary btn-sm mr-2" onClick={showHeaders}>Hide/Show headers</a>
+                <a href="#" className="btn btn-primary btn-sm mt-2 mr-2" onClick={showEditorSwitch}>Highlight</a>
+                <a href="#" className="btn btn-primary btn-sm mt-2 mr-2" onClick={showPics}>Hide/Show pic</a>
+                <a href="#" className="btn btn-primary btn-sm mt-2 mr-2" onClick={showHeaders}>Hide/Show headers</a>
               </div>
           </div>
         </div>
@@ -71,7 +74,13 @@ function App() {
         </div>
 
         <div className="col-4">
-          <Editor style={{height:'520px'}} value={editorText.text} onTextChange={(e) => setEditorText({text: e.htmlValue})} />
+          {showEditor &&
+            <>
+              <Editor style={{height: '520px'}} value={editorText.text}
+                      onTextChange={(e) => setEditorText({text: e.htmlValue})}/>
+              <button className="btn btn-primary btn-sm mt-2" onClick={showEditorSwitch}>Done</button>
+            </>
+          }
         </div>
 
         <div className="col-1">
