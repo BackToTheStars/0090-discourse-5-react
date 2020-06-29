@@ -34,3 +34,28 @@ h6 {
 .mod-padding {
     padding-right: 0px;
 }
+
+
+
+/*for border-and-line connection*/
+
+#div1 {
+    width: 100px;
+    height: 100px;
+    top:0;
+    left:0;
+    background:#777;
+    position:relative;
+}
+#div2 {
+    width: 100px;
+    height: 100px;
+    top:200px;
+    left:300px;
+    background:#333;
+    position:relative;
+}
+#line {
+    position: relative;
+}
+

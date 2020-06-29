@@ -41,6 +41,7 @@ function App() {
         <p>4. Add box resize functionality</p>
         <p className="done">5. Add button to hide/show text editor for highlighting</p>
         <p>6. Connect Mongo Atlas or Firebase database backend</p>
+        <p>7. Demonstrate div to div frame-and-line connection></p>
       </div>
       <br />
 
@@ -50,6 +51,8 @@ function App() {
         </div>
 
         <div className="col-4">
+
+
           <div className="card" style={{width: 18 + 'rem;'}}>
             { showPic && <img className="card-img-top" src="https://static01.nyt.com/images/2020/06/23/science/00SCI-MARS-HELICOPTER1/00SCI-MARS-HELICOPTER1-superJumbo.jpg?quality=90&auto=webp" alt="Card image cap" /> }
               <div className="card-body mod-padding">
@@ -68,6 +71,25 @@ function App() {
                 <a href="#" className="btn btn-primary btn-sm mt-2 mr-2" onClick={showHeaders}>Hide/Show headers</a>
               </div>
           </div>
+
+
+          <br />
+          <hr />
+          <p>Now we need to experiment with border-and-line connection:</p>
+          <div id="div1"></div>
+          <div id="div2"></div>
+          <svg id="line" width="500" height="500"><line x1="50" y1="50" x2="350" y2="350" stroke="red"/></svg>
+        {/*
+
+         offsetHeight	- Returns the height of an element, including padding, border and scrollbar
+         offsetWidth	- Returns the width  of an element, including padding, border and scrollbar
+         offsetLeft	  - Returns the horizontal offset position of an element
+         offsetTop	  - Returns the vertical offset position of an element
+
+        */}
+
+
+
         </div>
 
         <div className="col-1">
@@ -81,6 +103,7 @@ function App() {
               <button className="btn btn-primary btn-sm mt-2" onClick={showEditorSwitch}>Done</button>
             </>
           }
+
         </div>
 
         <div className="col-1">
